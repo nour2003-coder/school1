@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 // test comment 1
+// test comment 2
 
 @SpringBootApplication
 
