@@ -76,7 +76,7 @@
         <repository>
             <id>deploymentRepo</id>
             <name>Nexus Repository</name>
-            <url>http://10.0.2.15/repository/maven-releases/</url>
+            <url>http://192.168.56.101/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 
