@@ -1,0 +1,11 @@
+# Choisir l'image OpenJDK 11 (ou 17 selon ton projet)
+FROM openjdk:11-jdk-slim
+
+# Exposer le port de l'application Spring Boot
+EXPOSE 8082
+
+# Ajouter le jar construit par Maven
+ADD target/school-1.0.0.jar school-1.0.0.jar
+
+# Commande de lancement
+ENTRYPOINT ["java", "-jar", "/school-1.0.0.jar"]

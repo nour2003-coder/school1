@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  school-db:
+    image: mysql:8.0
+    container_name: school-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: schooldb
+      MYSQL_USER: schooluser
+      MYSQL_PASSWORD: schoolpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - school-db-data:/var/lib/mysql
+    networks:
+      - school-network
+
+  school-app:
+    image: tondockerhubid/school:1.0.0
+    container_name: school-app
+    depends_on:
+      - school-db
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://school-db:3306/schooldb
+      SPRING_DATASOURCE_USERNAME: schooluser
+      SPRING_DATASOURCE_PASSWORD: schoolpass
+    networks:
+      - school-network
+
+volumes:
+  school-db-data:
+
+networks:
+  school-network:
+    driver: bridge
