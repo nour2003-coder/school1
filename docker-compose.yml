@@ -16,6 +16,7 @@ services:
       - school-network
 
   school-app:
+  build:
     image: school:1.0.0
     container_name: school-app
     depends_on:
