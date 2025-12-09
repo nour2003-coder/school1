@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   school-db:
@@ -17,7 +16,7 @@ services:
       - school-network
 
   school-app:
-    image: tondockerhubid/school:1.0.0
+    image: school:1.0.0
     container_name: school-app
     depends_on:
       - school-db
