@@ -1,5 +1,14 @@
+# Use a Java 17 (or 11) base image
 FROM eclipse-temurin:17-jdk-jammy
+
+# Set working directory
 WORKDIR /app
+
+# Copy your Spring Boot jar
 COPY target/*.jar app.jar
+
+# Expose the port your app runs on
 EXPOSE 8082
+
+# Run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "app.jar"]
